@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:22:26 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/15 16:17:48 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/15 16:20:44 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 // function prototypes
 
 // f_utilities.c
-long int	f_find_overflow_negative(const char *s);
+long int	f_valid_ulong(const char *s);
 size_t		f_strlen(const char *s, int print);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 

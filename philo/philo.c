@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:11:09 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/15 16:18:09 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/15 16:20:41 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(void)
 	// 	return (-1);
 	char *longmax = "  \t 9223372036854775807";
 	
-	if(f_find_overflow_negative(longmax) == 1)
+	if(f_valid_ulong(longmax) == 1)
 		printf("good\n");
 	else
 		printf("overflow or negative\n");
