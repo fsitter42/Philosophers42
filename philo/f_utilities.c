@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:20:55 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/15 16:20:31 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/15 16:28:30 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,11 @@ size_t	f_strlen(const char *s, int print)
 
 long int	f_valid_ulong(const char *s)
 {
-	char *longmax = "9223372036854775807";
+	long	number;
+	char	*longmax;
+
+	number = 0;
+	longmax = "9223372036854775807";
 	while ((*s >= 9 && *s <= 13) || (*s == 32))
 		s++;
 	if (*s == '+' || *s == '-')
@@ -59,7 +63,13 @@ long int	f_valid_ulong(const char *s)
 			return (-1);
 		s++;
 	}
-	if (f_strlen(s, 0) > 19 || f_strlen(s, 0) == 19 && ft_strncmp(s, longmax, 19) > 0)
+	if (f_strlen(s, 0) > 19 || f_strlen(s, 0) == 19 && ft_strncmp(s, longmax,
+			19) > 0)
 		return (-1);
-	return (1);
+	while (*s >= '0' && *s <= '9')
+	{
+		number = number * 10 + *s - 48;
+		s++;
+	}
+	return (number);
 }
