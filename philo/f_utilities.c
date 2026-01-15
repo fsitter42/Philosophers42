@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:20:55 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/15 16:00:35 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/15 16:17:25 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,18 @@ size_t	f_strlen(const char *s, int print)
 	return (i);
 }
 
-long int	f_strtol(const char *s)
+long int	f_find_overflow_negative(const char *s)
 {
-	long long number;
-	int sign;
-	size_t i;
 	char *longmax = "9223372036854775807";
-
-	i = 0;
-	sign = 1;
-	number = 0;
-
+	while ((*s >= 9 && *s <= 13) || (*s == 32))
+		s++;
+	if (*s == '+' || *s == '-')
+	{
+		if (*s == '-')
+			return (-1);
+		s++;
+	}
 	if (f_strlen(s, 0) > 19 || f_strlen(s, 0) == 19 && ft_strncmp(s, longmax, 19) > 0)
 		return (-1);
-	return (number);
+	return (1);
 }
