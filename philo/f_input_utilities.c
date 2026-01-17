@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f_utilities.c                                      :+:      :+:    :+:   */
+/*   f_input_utilities.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:20:55 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/17 10:38:13 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/17 11:55:33 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ int	ft_isdigit(int c)
 		return (0);
 }
 
-size_t f_nan(const char *s)
+size_t	f_nan(const char *s)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (s[i])

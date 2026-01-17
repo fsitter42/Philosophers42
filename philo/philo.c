@@ -6,28 +6,20 @@
 /*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:11:09 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/17 10:39:55 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/17 12:09:12 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-// int main(int ac, char **av)
-int main(void)
+int main(int ac, char **av)
 {
 	t_in input;
 	
-	// if (ac != 5 || ac != 6)
-	// 	return (-1);
-	char *longmax = "922337203-6854775806";
-	
-	long n = f_valid_ulong(longmax);
-	if(n == 0)
-		printf("overflow or invalid or negative\n");
-	else
-		printf("%lu\n", n);
+	if (f_manage_input(ac, av, &input) < 0)
+		return (printf("ERROR: Input\n"), 1);
 
-	printf("%s\n%zu\n", longmax, n);
+
 	
 	
 }
