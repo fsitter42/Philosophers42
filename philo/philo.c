@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:11:09 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/17 12:09:12 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/17 13:18:09 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@ int main(int ac, char **av)
 	
 	if (f_manage_input(ac, av, &input) < 0)
 		return (printf("ERROR: Input\n"), 1);
+	printf("%zu\n", input.nop);
+	printf("%zu\n", input.ttd);
+	printf("%zu\n", input.tte);
+	printf("%zu\n", input.tts);
+	printf("%zu\n", input.notepme);
+
 
 
 	
