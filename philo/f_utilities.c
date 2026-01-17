@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:20:55 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/17 10:13:34 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/17 10:38:13 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,28 @@ size_t	f_slen(const char *s, int print)
 	return (i);
 }
 
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
+}
+
+size_t f_nan(const char *s)
+{
+	size_t i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (!ft_isdigit(s[i]))
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 long int	f_valid_ulong(const char *s)
 {
 	long	number;
@@ -57,16 +79,18 @@ long int	f_valid_ulong(const char *s)
 	number = 0;
 	lmax = "9223372036854775807";
 	len = f_slen(s, 0);
+	if (f_nan(s))
+		return (0);
 	while ((*s >= 9 && *s <= 13) || (*s == 32))
 		s++;
 	if (*s == '+' || *s == '-')
 	{
 		if (*s == '-')
-			return (-1);
+			return (0);
 		s++;
 	}
 	if (len > 19 || len == 19 && ft_sncmp(s, lmax, 19) > 0)
-		return (-1);
+		return (0);
 	while (*s >= '0' && *s <= '9')
 	{
 		number = number * 10 + *s - 48;

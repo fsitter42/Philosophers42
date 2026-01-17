@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:11:09 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/17 10:11:49 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/17 10:39:55 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ int main(void)
 	
 	// if (ac != 5 || ac != 6)
 	// 	return (-1);
-	char *longmax = "9223372036854775806";
+	char *longmax = "922337203-6854775806";
 	
 	long n = f_valid_ulong(longmax);
-	if(n == -1)
-		printf("overflow or negative\n");
+	if(n == 0)
+		printf("overflow or invalid or negative\n");
 	else
 		printf("%lu\n", n);
 
-	printf("%s\n", longmax);
+	printf("%s\n%zu\n", longmax, n);
 	
 	
 }
