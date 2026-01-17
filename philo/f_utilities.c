@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   f_utilities.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:20:55 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/15 16:28:30 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/17 10:13:34 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_sncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t			i;
 	unsigned char	*str1;
@@ -32,7 +32,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	return (0);
 }
 
-size_t	f_strlen(const char *s, int print)
+size_t	f_slen(const char *s, int print)
 {
 	size_t	i;
 
@@ -51,10 +51,12 @@ size_t	f_strlen(const char *s, int print)
 long int	f_valid_ulong(const char *s)
 {
 	long	number;
-	char	*longmax;
+	char	*lmax;
+	size_t	len;
 
 	number = 0;
-	longmax = "9223372036854775807";
+	lmax = "9223372036854775807";
+	len = f_slen(s, 0);
 	while ((*s >= 9 && *s <= 13) || (*s == 32))
 		s++;
 	if (*s == '+' || *s == '-')
@@ -63,8 +65,7 @@ long int	f_valid_ulong(const char *s)
 			return (-1);
 		s++;
 	}
-	if (f_strlen(s, 0) > 19 || f_strlen(s, 0) == 19 && ft_strncmp(s, longmax,
-			19) > 0)
+	if (len > 19 || len == 19 && ft_sncmp(s, lmax, 19) > 0)
 		return (-1);
 	while (*s >= '0' && *s <= '9')
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:11:09 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/15 16:30:32 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/17 10:11:49 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,19 @@
 // int main(int ac, char **av)
 int main(void)
 {
+	t_in input;
+	
 	// if (ac != 5 || ac != 6)
 	// 	return (-1);
-	char *longmax = "  \t 9223372036854775807";
+	char *longmax = "9223372036854775806";
 	
 	long n = f_valid_ulong(longmax);
 	if(n == -1)
 		printf("overflow or negative\n");
 	else
 		printf("%lu\n", n);
+
+	printf("%s\n", longmax);
 	
 	
 }
@@ -36,6 +40,11 @@ make a valid input function that tests
  - checks if overflow or negative number,
  - if not -> converts the positive number in s to long
 	
+
+check for strlen of itoa to compare for valid input?
+f_valid_ulong > return 0 on error weil 0 auch beendet wird
+
+
 1 a.out
 2 number_of_philosophers
 3 time_to_die
