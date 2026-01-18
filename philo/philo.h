@@ -3,17 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:22:26 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/17 12:08:49 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/18 13:10:19 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
 
+# include <pthread.h>
 # include <stdio.h>
+# include <sys/time.h>
 # include <unistd.h> //used??
 
 // struct prototypes
@@ -31,7 +33,7 @@ size_t					f_nan(const char *s);
 
 // f.input.c
 
-int f_manage_input(int ac, char **av, t_in *input);
+int						f_manage_input(int ac, char **av, t_in *input);
 
 // structs
 
