@@ -49,9 +49,39 @@ void ex2()
 	printf("hi\n");
 }
 
+void *f_do(void *arg)
+{
+	int *num = (int *)arg;
+	int i = 0;
+	while (i < 60000)
+	{
+		(*num)++;
+		i++;
+	}
+	return (NULL);
+}
+
+void ex3()
+{
+	int num = 0;
+	pthread_t t1;
+	pthread_t t2;
+
+	if (pthread_create(&t1, NULL, f_do, &num))
+		exit(1);
+	if (pthread_create(&t2, NULL, f_do, &num))
+		exit(1);
+	if (pthread_join(t1, NULL))
+		exit(1);
+	if (pthread_join(t2, NULL))
+		exit(1);
+	printf("%i\n", num);
+
+
+}
 
 int main()
 {
-	ex2();
+	ex3();
 }
 
