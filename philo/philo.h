@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:22:26 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/18 13:10:19 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/22 14:59:02 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@
 # include <stdio.h>
 # include <sys/time.h>
 # include <unistd.h> //used??
+# include <stdint.h> // uint64_t
 
 // struct prototypes
 
 typedef struct s_input	t_in;
+typedef struct s_philo	t_philo;
 
 // function prototypes
 
@@ -44,6 +46,15 @@ typedef struct s_input
 	size_t				tte;
 	size_t				tts;
 	size_t				notepme;
+	uint64_t			start_time;
+	pthread_mutex_t		*dead;
+	pthread_mutex_t		*log;
 }						t_in;
+
+typedef struct s_philo
+{
+	size_t				index;
+}	t_philo;
+
 
 #endif
