@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:22:26 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/22 14:59:02 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/22 15:39:51 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <pthread.h>
 # include <stdio.h>
 # include <sys/time.h>
-# include <unistd.h> //used??
+# include <unistd.h> //used?? usleep
 # include <stdint.h> // uint64_t
 
 // struct prototypes
@@ -33,9 +33,12 @@ int						ft_sncmp(const char *s1, const char *s2, size_t n);
 int						ft_isdigit(int c);
 size_t					f_nan(const char *s);
 
-// f.input.c
-
+// f_input.c
 int						f_manage_input(int ac, char **av, t_in *input);
+
+// f_time.c
+uint64_t				f_get_time(void);
+
 
 // structs
 
@@ -54,6 +57,12 @@ typedef struct s_input
 typedef struct s_philo
 {
 	size_t				index;
+	size_t				ate;
+	size_t				alive;
+	uint64_t			lte;
+	pthread_mutex_t		*left_fork;
+	pthread_mutex_t		*right_fork;
+	t_in				*input;
 }	t_philo;
 
 

@@ -1,0 +1,19 @@
+int main(int ac, char **av)
+{
+	t_in input;
+	
+	if (f_manage_input(ac, av, &input) < 0)
+		return (printf("ERROR: Input\n"), 1);
+	printf("%zu\n", input.nop);
+	printf("%zu\n", input.ttd);
+	printf("%zu\n", input.tte);
+	printf("%zu\n", input.tts);
+	printf("%zu\n", input.notepme);
+
+	input.start_time = f_get_time();
+	usleep(400000);
+	uint64_t time = f_get_time();
+
+	printf("\nTime Passed: %ld\n", time - input.start_time);
+	
+}

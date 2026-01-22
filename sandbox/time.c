@@ -31,7 +31,7 @@ void ex2()
 	uint64_t now_time;
 
 	start = gettime();
-	//usleep(530000);
+	usleep(530000);
 	now_time = gettime();
 
 	printf("\n%ld milliseconds since start\n", now_time - start);
