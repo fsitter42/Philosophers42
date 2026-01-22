@@ -1,0 +1,9 @@
+wtd:
+
+changed f_input.c line 29;
+
+next:
+
+fill structs
+start processes 
+syncronize
