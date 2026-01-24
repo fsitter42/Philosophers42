@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 11:56:29 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/24 10:30:51 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/24 13:46:40 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	f_manage_input(int ac, char **av, t_in *input)
 		input->notepme = -1;
 	if (input->nop < 1 || input->ttd < 1 || input->tte < 1 || input->tts < 1)
 		return (-1);
+	input->start_time = f_get_time();
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:22:26 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/24 11:11:43 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/24 14:21:50 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 
 typedef struct s_input	t_in;
 typedef struct s_philo	t_philo;
+typedef struct s_table	t_table;
 
 // function prototypes
 
@@ -39,6 +40,10 @@ int						f_manage_input(int ac, char **av, t_in *input);
 // f_time.c
 uint64_t				f_get_time(void);
 void					f_sleep(uint64_t ms);
+
+// f_table.c
+int						f_init_table(t_table *table, t_in *input);
+
 
 // structs
 
@@ -57,12 +62,20 @@ typedef struct s_input
 typedef struct s_philo
 {
 	size_t				index;
-	size_t				ate;
+	size_t				ate_x_times;
 	size_t				alive;
 	uint64_t			lte;
 	pthread_mutex_t		*left_fork;
 	pthread_mutex_t		*right_fork;
 	t_in				*input;
 }						t_philo;
+
+typedef struct s_table
+{
+	pthread_mutex_t		*forks;
+	pthread_mutex_t		death;
+	pthread_mutex_t		log;
+	pthread_t			*philos;
+}						t_table;
 
 #endif

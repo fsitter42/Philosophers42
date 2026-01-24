@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:11:09 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/24 11:13:40 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/24 14:19:28 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,22 @@
 int	main(int ac, char **av)
 {
 	t_in	input;
+	t_table	table;
+	t_philo	**philo;
 
 	if (f_manage_input(ac, av, &input) < 0)
 		return (printf("ERROR: Input\n"), 1);
-	input.start_time = f_get_time();
+	
+	if (f_init_table(&table, &input) < 0)
+		return(printf("ERROR: Malloc\n"), 1);
+	
 }
 
 /*
-
-make a valid input function that tests
- - ac!=5 or 6,
- - checks for negativ
- - checks if overflow or negative number,
- - if not -> converts the positive number in s to long
-
-
-check for strlen of itoa to compare for valid input?
-f_valid_ulong > return 0 on error weil 0 auch beendet wird
+next:
+	- f_init_table
+	- free input ?? nothing allocated
+	- free table
 
 
 1 a.out
