@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:22:26 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/24 10:38:46 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/24 11:11:43 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int						f_manage_input(int ac, char **av, t_in *input);
 
 // f_time.c
 uint64_t				f_get_time(void);
+void					f_sleep(uint64_t ms);
 
 // structs
 
