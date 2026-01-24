@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:22:26 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/24 10:25:00 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/24 10:38:46 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ typedef struct s_input
 	size_t				ttd;
 	size_t				tte;
 	size_t				tts;
-	size_t				notepme;
+	int					notepme;
 	uint64_t			start_time;
 	pthread_mutex_t		*death;
 	pthread_mutex_t		*log;

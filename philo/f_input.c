@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 11:56:29 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/24 10:23:57 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/24 10:30:51 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ int	f_manage_input(int ac, char **av, t_in *input)
 }
 
 /*
-line 29: set to -1; bc then i can: 
+line 30: set to -1; bc then i can: 
 if (notepme > 0) {i = 0; while (i < notepme) {do x}}
 */
