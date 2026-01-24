@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 13:53:20 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/24 14:59:03 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/24 15:00:46 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ DONE:initialize forks one by one
 
 DONE: destroy mutexes
 
-allocate mem for philos SIEHE Zeile 33
+NEXT: allocate mem for philos SIEHE Zeile 33
 
 build shit to free all of that
 
