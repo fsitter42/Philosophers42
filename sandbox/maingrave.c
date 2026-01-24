@@ -10,7 +10,7 @@ int	main(int ac, char **av)
 	printf("%zu\n", input.ttd);
 	printf("%zu\n", input.tte);
 	printf("%zu\n", input.tts);
-	printf("%zu\n", input.notepme);
+	printf("%i\n", input.notepme);
 
 	uint64_t time = f_get_time();
 
