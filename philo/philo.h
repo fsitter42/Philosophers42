@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:22:26 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/23 00:41:58 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/24 10:25:00 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 # define PHILO_H
 
 # include <pthread.h>
+# include <stdint.h> // uint64_t
 # include <stdio.h>
 # include <sys/time.h>
 # include <unistd.h> //used?? usleep
-# include <stdint.h> // uint64_t
 
 // struct prototypes
 
@@ -38,7 +38,6 @@ int						f_manage_input(int ac, char **av, t_in *input);
 
 // f_time.c
 uint64_t				f_get_time(void);
-
 
 // structs
 
@@ -63,7 +62,6 @@ typedef struct s_philo
 	pthread_mutex_t		*left_fork;
 	pthread_mutex_t		*right_fork;
 	t_in				*input;
-}	t_philo;
-
+}						t_philo;
 
 #endif

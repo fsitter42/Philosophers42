@@ -6,16 +6,16 @@
 /*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:11:09 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/23 00:15:30 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/24 10:24:37 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	t_in input;
-	
+	t_in	input;
+
 	if (f_manage_input(ac, av, &input) < 0)
 		return (printf("ERROR: Input\n"), 1);
 	input.start_time = f_get_time();
@@ -28,7 +28,7 @@ make a valid input function that tests
  - checks for negativ
  - checks if overflow or negative number,
  - if not -> converts the positive number in s to long
-	
+
 
 check for strlen of itoa to compare for valid input?
 f_valid_ulong > return 0 on error weil 0 auch beendet wird
