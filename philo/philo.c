@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:11:09 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/25 13:44:16 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/25 15:30:45 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,20 @@ int	main(int ac, char **av)
 		return (printf("ERROR: Input\n"), 1);
 	if (f_init_table(&table, &input) < 0)
 		return (printf("ERROR: init_table\n"), 1);
-	
-	// if (f_init_philos(&table, &input) < 0)
-	// 	return (printf("ERROR: init_philos\n"), 1);
+	philo = f_init_philos(&input, table.forks);
+	if (!philo)
+	{
+		printf("ERROR: f_init_philos\n");
+		f_destroy_table(&table, &input);
+		return (1);
+	}
 
-	//create threads
-
-	//joind threads
 	
-	//free phios
+	// create threads
+	// joind threads
+
+	
+	philo = f_free_philos(philo);
 	f_destroy_table(&table, &input);
 }
 

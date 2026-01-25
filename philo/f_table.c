@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 13:53:20 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/25 13:48:34 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/25 15:37:09 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,16 @@ void	f_destroy_forks(t_table *table, int nop)
 
 void	f_destroy_table(t_table *table, t_in *input)
 {
-	pthread_mutex_destroy(&table->live);
-	input->live = NULL;
-	pthread_mutex_destroy(&table->log);
-	input->log = NULL;
+	if (input->live)
+	{
+		pthread_mutex_destroy(&table->live);
+		input->live = NULL;
+	}
+	if (input->log)
+	{
+		pthread_mutex_destroy(&table->log);
+		input->log = NULL;
+	}
 	f_destroy_forks(table, input->nop);
 	return ;
 }

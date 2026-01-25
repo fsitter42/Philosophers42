@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:22:26 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/25 13:47:03 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/25 15:23:58 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 # include <pthread.h>
 # include <stdint.h> // uint64_t
 # include <stdio.h>
+# include <stdlib.h>
 # include <sys/time.h>
 # include <unistd.h> //used?? usleep
-# include <stdlib.h>
 
 // struct prototypes
 
@@ -42,8 +42,11 @@ void					f_sleep(uint64_t ms);
 int						f_init_table(t_table *table, t_in *input);
 void					f_destroy_table(t_table *table, t_in *input);
 
-// structs
+// f_philo_create.c
+t_philo					**f_init_philos(t_in *input, pthread_mutex_t *forks);
+t_philo					**f_free_philos(t_philo **philos);
 
+// structs
 typedef struct s_input
 {
 	size_t				nop;
