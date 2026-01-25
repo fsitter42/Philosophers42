@@ -34,7 +34,7 @@ int	f_init_table(t_table *table, t_in *input)
 int	f_init_forks(t_table *table, int nop)
 {
 	int	i;
-
+// table->forks = NULL;
 	table->forks = malloc(sizeof(pthread_mutex_t) * nop);
 	if (!table->forks)
 		return (-1);
