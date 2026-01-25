@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 12:51:40 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/25 15:38:32 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/25 16:30:30 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,3 +70,9 @@ t_philo	**f_free_philos(t_philo **philos)
 	philos = NULL;
 	return (philos);
 }
+
+/*
+vl:
+	- f_free_philos() umwnadeln in (t_philo **philos, int nop)
+		damit ich sie verwenden kann innerhalb f_init_philos
+*/

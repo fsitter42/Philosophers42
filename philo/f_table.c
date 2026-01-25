@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 13:53:20 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/25 15:37:09 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/25 16:30:58 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,19 @@ int	f_init_table(t_table *table, t_in *input)
 	input->live = &(table->live);
 	if (pthread_mutex_init(&table->log, NULL) != 0)
 	{
-		pthread_mutex_destroy(&table->live);
-		input->live = NULL;
+		f_destroy_table(table, input);
 		return (-1);
 	}
 	input->log = &(table->log);
 	if (f_init_forks(table, input->nop) < 0)
 	{
-		pthread_mutex_destroy(&table->live);
-		pthread_mutex_destroy(&table->log);
-		input->live = NULL;
-		input->log = NULL;
+		f_destroy_table(table, input);
+		return (-1);
+	}
+	table->philos = malloc(sizeof(pthread_t) * input->nop);
+	if (!table->philos)
+	{
+		f_destroy_table(table, input);
 		return (-1);
 	}
 	return (0);
@@ -51,10 +53,7 @@ int	f_init_forks(t_table *table, int nop)
 	{
 		if (pthread_mutex_init(&table->forks[i], NULL) != 0)
 		{
-			while (--i >= 0)
-				pthread_mutex_destroy(&table->forks[i]);
-			free(table->forks);
-			table->forks = NULL;
+			f_destroy_forks(table, i);
 			return (-1);
 		}
 		i++;
@@ -92,6 +91,11 @@ void	f_destroy_table(t_table *table, t_in *input)
 		input->log = NULL;
 	}
 	f_destroy_forks(table, input->nop);
+	if (table->philos)
+	{
+		free(table->philos);
+		table->philos = NULL;
+	}
 	return ;
 }
 /*
