@@ -79,6 +79,7 @@ void	f_destroy_table(t_table *table, int nop)
 	return ;
 }
 /*
+zeile 37
 ACHTUNG:
 f_destroy_table soll f_destroy_mv() werden, in der die beiden extra mutex
 zerstört werden und die forks
