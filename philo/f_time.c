@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 15:34:44 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/24 11:06:27 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/25 01:35:15 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,7 @@ void	f_sleep(uint64_t ms)
 	while ((f_get_time() - start) < ms)
 		usleep(600);
 }
+
+/*
+Checke forks.c NOTES:
+*/

@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 13:53:20 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/24 15:00:46 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/25 01:15:14 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,15 +82,5 @@ void	f_destroy_forks(pthread_mutex_t **forks, int nop)
 }
 
 /*
-DONE:allocate mem for forks
-DONE:initalize death and log
-DONE:initialize forks one by one
-
-DONE: destroy mutexes
-
-NEXT: allocate mem for philos SIEHE Zeile 33
-
-build shit to free all of that
-
-should return -1 on error
+VERWENDE: sandbox/forks.c
 */
