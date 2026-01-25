@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:22:26 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/25 12:52:30 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/25 13:47:03 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,6 @@ typedef struct s_table	t_table;
 
 // f_input_utilities.c
 long int				f_valid_ulong(const char *s);
-size_t					f_slen(const char *s, int print);
-int						ft_sncmp(const char *s1, const char *s2, size_t n);
-int						ft_isdigit(int c);
-size_t					f_nan(const char *s);
 
 // f_input.c
 int						f_manage_input(int ac, char **av, t_in *input);
@@ -44,6 +40,7 @@ void					f_sleep(uint64_t ms);
 
 // f_table.c
 int						f_init_table(t_table *table, t_in *input);
+void					f_destroy_table(t_table *table, t_in *input);
 
 // structs
 

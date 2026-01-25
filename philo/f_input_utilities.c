@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   f_input_utilities.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:20:55 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/17 11:55:33 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/25 13:47:19 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+size_t	f_slen(const char *s, int print);
+int		ft_sncmp(const char *s1, const char *s2, size_t n);
+int		ft_isdigit(int c);
+size_t	f_nan(const char *s);
 
 int	ft_sncmp(const char *s1, const char *s2, size_t n)
 {

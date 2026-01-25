@@ -28,3 +28,29 @@ int	main(int ac, char **av)
 	uint64_t time = f_get_time();
 	printf("\nTime Passed: %ld\n", time - input.start_time);
 }
+
+//f_table.c -> valgrind --tool=helgrind ./a.out 6 2 2 2
+int	main(int ac, char **av)
+{
+	t_in	input;
+	t_table	table;
+	t_philo	**philo;
+
+	if (f_manage_input(ac, av, &input) < 0)
+		return (printf("ERROR: Input\n"), 1);
+	if (f_init_table(&table, &input) < 0)
+		return (printf("ERROR: init_table\n"), 1);
+	
+
+	printf("LIVE: %p\n", input.live);
+	printf("LOG: %p\n", input.log);
+	printf("FORKS: %p\n", table.forks);
+	printf("FORK1: %p\n", (void *)&table.forks[1]);
+	
+	f_destroy_table(&table, &input);
+	printf("nachher\n");
+	printf("LIVE: %p\n", input.live);
+	printf("LOG: %p\n", input.log);
+	printf("FORKS: %p\n", table.forks);
+	printf("FORK1: %p\n", (void *)&table.forks[1]);	
+}

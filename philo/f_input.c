@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   f_input.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 11:56:29 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/24 13:46:40 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/25 12:59:28 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	f_manage_input(int ac, char **av, t_in *input)
 	if (input->nop < 1 || input->ttd < 1 || input->tte < 1 || input->tts < 1)
 		return (-1);
 	input->start_time = f_get_time();
+	input->live = NULL;
+	input->log = NULL;
 	return (0);
 }
 

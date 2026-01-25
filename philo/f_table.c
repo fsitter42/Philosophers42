@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 13:53:20 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/25 12:51:17 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/25 13:48:34 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,25 @@
 
 int		f_init_forks(t_table *table, int nop);
 void	f_destroy_forks(t_table *table, int nop);
-void	f_destroy_table(t_table *table, int nop);
 
 int	f_init_table(t_table *table, t_in *input)
 {
 	if (pthread_mutex_init(&table->live, NULL) != 0)
 		return (-1);
+	input->live = &(table->live);
 	if (pthread_mutex_init(&table->log, NULL) != 0)
 	{
 		pthread_mutex_destroy(&table->live);
+		input->live = NULL;
 		return (-1);
 	}
+	input->log = &(table->log);
 	if (f_init_forks(table, input->nop) < 0)
 	{
 		pthread_mutex_destroy(&table->live);
 		pthread_mutex_destroy(&table->log);
+		input->live = NULL;
+		input->log = NULL;
 		return (-1);
 	}
 	return (0);
@@ -75,11 +79,13 @@ void	f_destroy_forks(t_table *table, int nop)
 	return ;
 }
 
-void	f_destroy_table(t_table *table, int nop)
+void	f_destroy_table(t_table *table, t_in *input)
 {
 	pthread_mutex_destroy(&table->live);
+	input->live = NULL;
 	pthread_mutex_destroy(&table->log);
-	f_destroy_forks(table, nop);
+	input->log = NULL;
+	f_destroy_forks(table, input->nop);
 	return ;
 }
 /*
@@ -116,4 +122,3 @@ build shit to free all of that
 
 should return -1 on error
 */
-
