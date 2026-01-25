@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:11:09 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/24 14:19:28 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/25 12:50:44 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@ int	main(int ac, char **av)
 
 	if (f_manage_input(ac, av, &input) < 0)
 		return (printf("ERROR: Input\n"), 1);
-	
 	if (f_init_table(&table, &input) < 0)
-		return(printf("ERROR: Malloc\n"), 1);
-	
+		return (printf("ERROR: Malloc\n"), 1);
 }
 
 /*

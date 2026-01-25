@@ -2,39 +2,42 @@
 
 int		f_init_forks(t_table *table, int nop);
 void	f_destroy_forks(t_table *table, int nop);
+void	f_destroy_table(t_table *table, int nop);
+
+
 
 int	f_init_table(t_table *table, t_in *input)
 {
-	if (pthread_mutex_init(&table->death, NULL) != 0)
+	if (pthread_mutex_init(&table->live, NULL) != 0)
 		return (-1);
 	if (pthread_mutex_init(&table->log, NULL) != 0)
 	{
-		pthread_mutex_destroy(&table->death);
+		pthread_mutex_destroy(&table->live);
 		return (-1);
 	}
 	if (f_init_forks(table, input->nop) < 0)
 	{
-		pthread_mutex_destroy(&table->death);
+		pthread_mutex_destroy(&table->live);
 		pthread_mutex_destroy(&table->log);
 		return (-1);
 	}
-    //ich bin hier
-    /*
-    jetzt: 
-    f_init philos genau so protecten wie init forks also bei fehler
-    während anlegen while(--i >= 0) -> pthread_join()
-    um bereits erstellte/laufende threads wieder einzugliedern
-    dann:
-    f_join_philos -> um sie am schluss aufzuräumen
-    
-    */
+	// ich bin hier
+	/*
+	jetzt:
+	f_init philos genau so protecten wie init forks also bei fehler
+	während anlegen while(--i >= 0) -> pthread_join()
+	um bereits erstellte/laufende threads wieder einzugliedern
+	dann:
+	f_join_philos -> um sie am schluss aufzuräumen
+	*/
 	return (0);
 }
 
 int	f_init_forks(t_table *table, int nop)
 {
 	int	i;
-// table->forks = NULL;
+
+	table->forks = NULL;
 	table->forks = malloc(sizeof(pthread_mutex_t) * nop);
 	if (!table->forks)
 		return (-1);
@@ -73,8 +76,8 @@ void	f_destroy_forks(t_table *table, int nop)
 
 void	f_destroy_table(t_table *table, int nop)
 {
-	pthread_mutex_destroy(&table->death);
-    pthread_mutex_destroy(&table->log);
+	pthread_mutex_destroy(&table->live);
+	pthread_mutex_destroy(&table->log);
 	f_destroy_forks(table, nop);
 	return ;
 }

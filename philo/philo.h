@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:22:26 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/24 14:21:50 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/25 12:52:30 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdio.h>
 # include <sys/time.h>
 # include <unistd.h> //used?? usleep
+# include <stdlib.h>
 
 // struct prototypes
 
@@ -44,7 +45,6 @@ void					f_sleep(uint64_t ms);
 // f_table.c
 int						f_init_table(t_table *table, t_in *input);
 
-
 // structs
 
 typedef struct s_input
@@ -55,7 +55,7 @@ typedef struct s_input
 	size_t				tts;
 	int					notepme;
 	uint64_t			start_time;
-	pthread_mutex_t		*death;
+	pthread_mutex_t		*live;
 	pthread_mutex_t		*log;
 }						t_in;
 
@@ -73,7 +73,7 @@ typedef struct s_philo
 typedef struct s_table
 {
 	pthread_mutex_t		*forks;
-	pthread_mutex_t		death;
+	pthread_mutex_t		live;
 	pthread_mutex_t		log;
 	pthread_t			*philos;
 }						t_table;
