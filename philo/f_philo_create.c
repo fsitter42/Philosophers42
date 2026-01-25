@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 12:51:40 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/25 15:25:03 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/25 15:38:32 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,3 @@ t_philo	**f_free_philos(t_philo **philos)
 	philos = NULL;
 	return (philos);
 }
-// ich bin hier
-/*
-jetzt:
-f_init philos genau so protecten wie init forks also bei fehler
-während anlegen while(--i >= 0) -> pthread_join()
-um bereits erstellte/laufende threads wieder einzugliedern
-dann:
-f_join_philos -> um sie am schluss aufzuräumen
-*/

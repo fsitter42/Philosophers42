@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:11:09 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/25 15:30:45 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/25 15:42:33 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int ac, char **av)
 		return (1);
 	}
 
-	
+	// im here::::::
 	// create threads
 	// joind threads
 
@@ -40,10 +40,14 @@ int	main(int ac, char **av)
 }
 
 /*
+ACHTUNG: ab Zeile 32 bei einem Fehler im Rückgabewert philo = f_free_philo() und f_destroy_table() aufrufen!!!!
+
 next:
-	- f_init_table
-	- free input ?? nothing allocated
-	- free table
+	- create the threads
+	- join them back
+
+	- create routine for philos
+	- create routine for live and log ??
 
 
 1 a.out
