@@ -1,8 +1,22 @@
 wtd:
 
 NEXT:
-f_table.c Zeile 33
 
-fill structs
-start processes 
-syncronize
+sicher:
+	-> ghost routine
+	-> threads creation
+	-> join threads
+
+evtl:
+	-> void	f_philo_think(t_philo *ph);			löschen und einfach ausführen in philo_eat();
+	-> dann habe ich platz für take_fork(pthread_mutex_t	*fork); und leave_fork(pthread_mutex_t	*fork);
+
+
+
+zuletzt erledigt:
+
+-> philo routine
+-> philo actions 
+-> ghost routine angelegt
+-> threads create angelegt
+
