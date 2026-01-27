@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 16:09:37 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/27 16:27:36 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/27 16:54:45 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	f_philo_eat(t_philo *ph)
 	ph->ate_x_times += 1;
 	pthread_mutex_unlock(ph->input->live);
 	f_sleep(ph->input->tte);
-	pthread_mutex_unlock(f1);
 	pthread_mutex_unlock(f2);
+	pthread_mutex_unlock(f1);
 }
 
 void	f_philo_sleep(t_philo *ph)
