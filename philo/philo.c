@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:11:09 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/25 15:42:33 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/27 13:21:26 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	main(int ac, char **av)
 	// im here::::::
 	// create threads
 	// joind threads
+	f_sleep(400);
+	printf("%lu %lu is eating.\n", f_get_time() - philo[0]->input->start_time, philo[0]->index);
 
 	
 	philo = f_free_philos(philo);

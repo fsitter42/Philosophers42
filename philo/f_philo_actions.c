@@ -1,0 +1,63 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   f_philo_actions.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/27 16:09:37 by fsitter           #+#    #+#             */
+/*   Updated: 2026/01/27 16:27:36 by fsitter          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "philo.h"
+
+void	f_philo_eat(t_philo *ph)
+{
+	pthread_mutex_t	*f1;
+	pthread_mutex_t	*f2;
+
+	f1 = ph->left_fork;
+	f2 = ph->right_fork;
+	if (ph->index % 2 == 0)
+	{
+		f1 = ph->right_fork;
+		f2 = ph->left_fork;
+	}
+	pthread_mutex_lock(f1);
+	f_print_status(ph, "has taken a fork");
+	pthread_mutex_lock(f2);
+	f_print_status(ph, "has taken a fork");
+	f_print_status(ph, "is eating");
+	pthread_mutex_lock(ph->input->live);
+	ph->lte = f_get_time();
+	ph->ate_x_times += 1;
+	pthread_mutex_unlock(ph->input->live);
+	f_sleep(ph->input->tte);
+	pthread_mutex_unlock(f1);
+	pthread_mutex_unlock(f2);
+}
+
+void	f_philo_sleep(t_philo *ph)
+{
+	f_print_status(ph, "is sleeping.");
+	f_sleep(ph->input->tts);
+}
+
+void	f_philo_think(t_philo *ph)
+{
+	f_print_status(ph, "is thinking.");
+}
+
+void	f_print_status(t_philo *p, char *status)
+{
+	uint64_t	timestamp;
+
+	pthread_mutex_lock(p->input->log);
+	if (f_is_live(p))
+	{
+		timestamp = f_get_time() - p->input->start_time;
+		printf("%lu %lu %s.\n", timestamp, p->index, status);
+	}
+	pthread_mutex_unlock(p->input->log);
+}

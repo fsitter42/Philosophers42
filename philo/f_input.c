@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 11:56:29 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/25 12:59:28 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/27 13:12:08 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,11 @@ int	f_manage_input(int ac, char **av, t_in *input)
 	input->start_time = f_get_time();
 	input->live = NULL;
 	input->log = NULL;
+	input->life = 1;
 	return (0);
 }
 
 /*
-line 30: set to -1; bc then i can: 
+line 30: set to -1; bc then i can:
 if (notepme > 0) {i = 0; while (i < notepme) {do x}}
 */

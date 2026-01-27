@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:22:26 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/25 15:23:58 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/27 16:33:05 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PHILO_H
 
 # include <pthread.h>
+# include <stdbool.h>
 # include <stdint.h> // uint64_t
 # include <stdio.h>
 # include <stdlib.h>
@@ -46,6 +47,22 @@ void					f_destroy_table(t_table *table, t_in *input);
 t_philo					**f_init_philos(t_in *input, pthread_mutex_t *forks);
 t_philo					**f_free_philos(t_philo **philos);
 
+// f_philo_routine.c
+void					*f_philo_routine(void *p);
+int						f_is_live(t_philo *philo);
+
+// f_threads_create.c  da kommt die pthread_create();
+// void notes();
+
+// f_philo_actions.c
+void					f_philo_eat(t_philo *philo);
+void					f_philo_sleep(t_philo *ph);
+void					f_philo_think(t_philo *ph);
+void					f_print_status(t_philo *p, char *status);
+
+// f_ghost_routine.c
+void					*f_ghost_routine(void *p);
+
 // structs
 typedef struct s_input
 {
@@ -55,6 +72,7 @@ typedef struct s_input
 	size_t				tts;
 	int					notepme;
 	uint64_t			start_time;
+	bool				life;
 	pthread_mutex_t		*live;
 	pthread_mutex_t		*log;
 }						t_in;
