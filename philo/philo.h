@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:22:26 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/27 16:33:05 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/28 13:35:38 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,11 @@ void					f_philo_eat(t_philo *philo);
 void					f_philo_sleep(t_philo *ph);
 void					f_philo_think(t_philo *ph);
 void					f_print_status(t_philo *p, char *status);
+
+// f_philo_actions2.c
+void					f_take_forks(t_philo *ph, pthread_mutex_t *f1,
+							pthread_mutex_t *f2);
+void					f_leave_forks(pthread_mutex_t *f1, pthread_mutex_t *f2);
 
 // f_ghost_routine.c
 void					*f_ghost_routine(void *p);

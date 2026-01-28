@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 16:09:37 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/27 16:54:45 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/28 13:41:19 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,14 @@ void	f_philo_eat(t_philo *ph)
 		f1 = ph->right_fork;
 		f2 = ph->left_fork;
 	}
-	pthread_mutex_lock(f1);
-	f_print_status(ph, "has taken a fork");
-	pthread_mutex_lock(f2);
-	f_print_status(ph, "has taken a fork");
+	f_take_forks(ph, f1, f2);
 	f_print_status(ph, "is eating");
 	pthread_mutex_lock(ph->input->live);
 	ph->lte = f_get_time();
 	ph->ate_x_times += 1;
 	pthread_mutex_unlock(ph->input->live);
 	f_sleep(ph->input->tte);
-	pthread_mutex_unlock(f2);
-	pthread_mutex_unlock(f1);
+	f_leave_forks(f1, f2);
 }
 
 void	f_philo_sleep(t_philo *ph)
