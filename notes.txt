@@ -3,9 +3,19 @@ wtd:
 NEXT:
 
 sicher:
-	-> ghost routine
-	-> threads creation
-	-> join threads
+
+jedem philo einen eigenen mutex geben der seine:
+
+	pthread_mutex_lock(ph->input->live);
+	ph->lte = f_get_time();
+	ph->ate_x_times += 1;
+	pthread_mutex_unlock(ph->input->live);
+
+sperrt und updated
+
+diesen extra mutex dann als ghost sperren zum ausrechnen.
+entsperren und dann handeln siehe discord
+
 
 
 evtl:
@@ -13,6 +23,10 @@ evtl:
 		und starte die thread creation gar nicht
 
 zuletzt erledigt:
+
+	-> ghost routine
+	-> threads creation
+	-> join threads
 
 	-> void	f_philo_think(t_philo *ph);			löschen und einfach ausführen in philo_eat();
 	-> dann habe ich platz für take_fork(pthread_mutex_t	*fork); und leave_fork(pthread_mutex_t	*fork);
@@ -22,4 +36,7 @@ zuletzt erledigt:
 -> philo actions 
 -> ghost routine angelegt
 -> threads create angelegt
+
+
+
 
