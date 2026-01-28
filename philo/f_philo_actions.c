@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 16:09:37 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/28 15:29:46 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/28 17:12:29 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,20 @@ void	f_print_status(t_philo *p, char *status)
 {
 	uint64_t	timestamp;
 
+	if (!f_is_live(p))
+		return ;
+	pthread_mutex_lock(p->input->log);
+	timestamp = f_get_time() - p->input->start_time;
+	printf("%lu %lu %s.\n", timestamp, p->index, status);
+	pthread_mutex_unlock(p->input->log);
+}
+
+
+/* ALTE FUNKTION VERSCHACHTELUNG
+void	f_print_status(t_philo *p, char *status)
+{
+	uint64_t	timestamp;
+
 	pthread_mutex_lock(p->input->log);
 	if (f_is_live(p))
 	{
@@ -59,3 +73,4 @@ void	f_print_status(t_philo *p, char *status)
 	}
 	pthread_mutex_unlock(p->input->log);
 }
+*/
