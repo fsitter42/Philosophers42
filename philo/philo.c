@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:11:09 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/27 13:21:26 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/28 16:40:58 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ int	main(int ac, char **av)
 		f_destroy_table(&table, &input);
 		return (1);
 	}
-
-	// im here::::::
-	// create threads
-	// joind threads
-	f_sleep(400);
-	printf("%lu %lu is eating.\n", f_get_time() - philo[0]->input->start_time, philo[0]->index);
-
-	
+	if (f_init_threads(philo, table.philos) < 0)
+	{
+		printf("ERROR: f_init_threads\n");
+		f_destroy_table(&table, &input);
+		philo = f_free_philos(philo);
+		return (1);
+	}
+	f_join_threads(input, table.philos);
 	philo = f_free_philos(philo);
 	f_destroy_table(&table, &input);
 }

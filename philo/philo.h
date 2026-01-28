@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:22:26 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/28 13:35:38 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/28 16:34:57 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,6 @@ t_philo					**f_free_philos(t_philo **philos);
 void					*f_philo_routine(void *p);
 int						f_is_live(t_philo *philo);
 
-// f_threads_create.c  da kommt die pthread_create();
-// void notes();
-
 // f_philo_actions.c
 void					f_philo_eat(t_philo *philo);
 void					f_philo_sleep(t_philo *ph);
@@ -67,6 +64,10 @@ void					f_leave_forks(pthread_mutex_t *f1, pthread_mutex_t *f2);
 
 // f_ghost_routine.c
 void					*f_ghost_routine(void *p);
+
+// f_threads_create.c
+int						f_init_threads(t_philo **ph, pthread_t *threads);
+void					f_join_threads(t_in in, pthread_t *threads);
 
 // structs
 typedef struct s_input
@@ -86,7 +87,6 @@ typedef struct s_philo
 {
 	size_t				index;
 	size_t				ate_x_times;
-	size_t				alive;
 	uint64_t			lte;
 	pthread_mutex_t		*left_fork;
 	pthread_mutex_t		*right_fork;

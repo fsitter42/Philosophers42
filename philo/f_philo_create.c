@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 12:51:40 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/25 16:30:30 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/28 14:34:01 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	f_fill_philos(t_philo *ph, int i, t_in *in, pthread_mutex_t *forks)
 {
 	ph->index = i + 1;
 	ph->ate_x_times = 0;
-	ph->alive = 1;
 	ph->lte = in->start_time;
 	ph->input = in;
 	if (i == 0)

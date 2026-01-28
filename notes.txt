@@ -7,13 +7,16 @@ sicher:
 	-> threads creation
 	-> join threads
 
+
 evtl:
+	-> edgecase 1 philo before thread_create() , dann kann ich one philo rauslöschen aus philo routine
+		und starte die thread creation gar nicht
+
+zuletzt erledigt:
+
 	-> void	f_philo_think(t_philo *ph);			löschen und einfach ausführen in philo_eat();
 	-> dann habe ich platz für take_fork(pthread_mutex_t	*fork); und leave_fork(pthread_mutex_t	*fork);
 
-
-
-zuletzt erledigt:
 
 -> philo routine
 -> philo actions 

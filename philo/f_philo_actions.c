@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 16:09:37 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/28 13:41:19 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/28 15:29:46 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ void	f_philo_sleep(t_philo *ph)
 void	f_philo_think(t_philo *ph)
 {
 	f_print_status(ph, "is thinking.");
+	if (ph->input->nop % 2 != 0)
+		f_sleep(1);
 }
 
 void	f_print_status(t_philo *p, char *status)

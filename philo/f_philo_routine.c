@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 12:22:24 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/27 16:28:18 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/28 13:52:21 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	*f_philo_routine(void *p)
 		f_philo_sleep(philo);
 		f_philo_think(philo);
 	}
+	return (NULL);
 }
 
 void	*f_one_philo(t_philo *philo)
