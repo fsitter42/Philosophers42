@@ -2,7 +2,13 @@ wtd:
 
 NEXT:
 
-sicher:
+philo.c
+
+
+zuletzt erledigt:
+
+
+
 
 jedem philo einen eigenen mutex geben der seine:
 
@@ -16,13 +22,6 @@ sperrt und updated
 diesen extra mutex dann als ghost sperren zum ausrechnen.
 entsperren und dann handeln siehe discord
 
-
-
-evtl:
-	-> edgecase 1 philo before thread_create() , dann kann ich one philo rauslöschen aus philo routine
-		und starte die thread creation gar nicht
-
-zuletzt erledigt:
 
 	-> ghost routine
 	-> threads creation
