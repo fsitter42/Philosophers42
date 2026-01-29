@@ -6,13 +6,13 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 13:53:20 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/29 11:55:18 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/29 11:56:16 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	    f_init_mutex_array(pthread_mutex_t **array, int nop);
+int		f_init_mutex_array(pthread_mutex_t **array, int nop);
 void	f_destroy_mutex_array(pthread_mutex_t **array, int nop);
 
 int	f_init_table(t_table *table, t_in *input)
@@ -26,12 +26,12 @@ int	f_init_table(t_table *table, t_in *input)
 		return (-1);
 	}
 	input->log = &(table->log);
-	if (f_init_mutex_array(&table->forks, input->nop) < 0) //hier
+	if (f_init_mutex_array(&table->forks, input->nop) < 0)
 	{
 		f_destroy_table(table, input);
 		return (-1);
 	}
-	if (f_init_mutex_array(&table->sensors, input->nop) < 0) //hier
+	if (f_init_mutex_array(&table->sensors, input->nop) < 0)
 	{
 		f_destroy_table(table, input);
 		return (-1);
@@ -69,6 +69,7 @@ void	f_destroy_table(t_table *table, t_in *input)
 void	f_destroy_mutex_array(pthread_mutex_t **array, int nop)
 {
 	int	i;
+
 	if (!array || !*array)
 		return ;
 	i = 0;
@@ -82,7 +83,7 @@ void	f_destroy_mutex_array(pthread_mutex_t **array, int nop)
 	return ;
 }
 
-int	    f_init_mutex_array(pthread_mutex_t **array, int nop)
+int	f_init_mutex_array(pthread_mutex_t **array, int nop)
 {
 	int	i;
 

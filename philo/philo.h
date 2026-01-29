@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:22:26 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/29 11:45:49 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/29 12:05:13 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int						f_init_table(t_table *table, t_in *input);
 void					f_destroy_table(t_table *table, t_in *input);
 
 // f_philo_create.c
-t_philo					**f_init_philos(t_in *input, pthread_mutex_t *forks);
+t_philo					**f_init_philos(t_in *input, t_table *table);
 t_philo					**f_free_philos(t_philo **philos);
 
 // f_philo_routine.c
@@ -101,7 +101,7 @@ typedef struct s_table
 	pthread_mutex_t		log;
 	pthread_t			*philos;
 	pthread_mutex_t		*sensors;
-	
+
 }						t_table;
 
 #endif

@@ -6,15 +6,15 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 12:51:40 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/28 14:34:01 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/29 12:08:57 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	f_fill_philos(t_philo *ph, int i, t_in *in, pthread_mutex_t *forks);
+void	f_fill_philos(t_philo *ph, int i, t_in *in, t_table *table);
 
-t_philo	**f_init_philos(t_in *input, pthread_mutex_t *forks)
+t_philo	**f_init_philos(t_in *input, t_table *table)
 {
 	int		i;
 	t_philo	**philos;
@@ -34,24 +34,25 @@ t_philo	**f_init_philos(t_in *input, pthread_mutex_t *forks)
 			philos = NULL;
 			return (philos);
 		}
-		f_fill_philos(philos[i], i, input, forks);
+		f_fill_philos(philos[i], i, input, table);
 		i++;
 	}
 	philos[i] = NULL;
 	return (philos);
 }
 
-void	f_fill_philos(t_philo *ph, int i, t_in *in, pthread_mutex_t *forks)
+void	f_fill_philos(t_philo *ph, int i, t_in *in, t_table *table)
 {
 	ph->index = i + 1;
 	ph->ate_x_times = 0;
 	ph->lte = in->start_time;
 	ph->input = in;
 	if (i == 0)
-		ph->left_fork = &forks[in->nop - 1];
+		ph->left_fork = &table->forks[in->nop - 1];
 	else
-		ph->left_fork = &forks[i - 1];
-	ph->right_fork = &forks[i];
+		ph->left_fork = &table->forks[i - 1];
+	ph->right_fork = &table->forks[i];
+	ph->sensor = &table->sensors[i];
 	return ;
 }
 
@@ -70,8 +71,3 @@ t_philo	**f_free_philos(t_philo **philos)
 	return (philos);
 }
 
-/*
-vl:
-	- f_free_philos() umwnadeln in (t_philo **philos, int nop)
-		damit ich sie verwenden kann innerhalb f_init_philos
-*/
