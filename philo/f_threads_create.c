@@ -6,7 +6,7 @@
 /*   By: a600 <a600@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 16:18:23 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/29 01:48:38 by a600             ###   ########.fr       */
+/*   Updated: 2026/01/29 01:56:20 by a600             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	f_init_threads(t_philo **ph, pthread_t *threads)
 	{
 		if (pthread_create(&threads[i], NULL, f_philo_routine, ph[i]) != 0)
 		{
-			f_kill(ph[0]->input->live, ph[0]);
+			f_kill(ph);
 			while (--i >= 0)
 				pthread_join(threads[i], NULL);
 			return (-1);
@@ -34,7 +34,7 @@ int	f_init_threads(t_philo **ph, pthread_t *threads)
 	}
 	if (pthread_create(&threads[i], NULL, f_ghost_routine, ph) != 0)
 	{
-		f_kill(ph[0]->input->live, ph[0]);
+		f_kill(ph);
 		while (--i >= 0)
 			pthread_join(threads[i], NULL);
 		return (-1);
