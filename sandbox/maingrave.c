@@ -1,3 +1,5 @@
+#include "../philo/philo.h"
+
 // input
 int	main(int ac, char **av)
 {
@@ -53,4 +55,33 @@ int	main(int ac, char **av)
 	printf("LOG: %p\n", input.log);
 	printf("FORKS: %p\n", table.forks);
 	printf("FORK1: %p\n", (void *)&table.forks[1]);	
+}
+
+int	main(int ac, char **av)
+{
+	t_in	input;
+	t_table	table;
+	t_philo	**philo;
+
+	if (f_manage_input(ac, av, &input) < 0)
+		return (printf("ERROR: Input\n"), 1);
+	if (f_init_table(&table, &input) < 0)
+		return (printf("ERROR: init_table\n"), 1);
+	philo = f_init_philos(&input, &table);
+	if (!philo)
+	{
+		printf("ERROR: f_init_philos\n");
+		f_destroy_table(&table, &input);
+		return (1);
+	}
+	if (f_init_threads(philo, table.philos) < 0)
+	{
+		printf("ERROR: f_init_threads\n");
+		f_destroy_table(&table, &input);
+		philo = f_free_philos(philo);
+		return (1);
+	}
+	f_join_threads(input, table.philos);
+	philo = f_free_philos(philo);
+	f_destroy_table(&table, &input);
 }

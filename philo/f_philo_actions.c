@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 16:09:37 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/29 12:11:26 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/29 12:25:31 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ void	f_philo_eat(t_philo *ph)
 	}
 	f_take_forks(ph, f1, f2);
 	f_print_status(ph, "is eating");
-	pthread_mutex_lock(ph->input->live);
+	pthread_mutex_lock(ph->sensor);
 	ph->lte = f_get_time();
 	ph->ate_x_times += 1;
-	pthread_mutex_unlock(ph->input->live);
+	pthread_mutex_unlock(ph->sensor);
 	f_sleep(ph->input->tte);
 	f_leave_forks(f1, f2);
 }
@@ -58,18 +58,3 @@ void	f_print_status(t_philo *p, char *status)
 	printf("%lu %lu %s.\n", timestamp, p->index, status);
 	pthread_mutex_unlock(p->input->log);
 }
-
-/* ALTE FUNKTION VERSCHACHTELUNG
-void	f_print_status(t_philo *p, char *status)
-{
-	uint64_t	timestamp;
-
-	pthread_mutex_lock(p->input->log);
-	if (f_is_live(p))
-	{
-		timestamp = f_get_time() - p->input->start_time;
-		printf("%lu %lu %s.\n", timestamp, p->index, status);
-	}
-	pthread_mutex_unlock(p->input->log);
-}
-*/

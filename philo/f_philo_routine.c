@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 12:22:24 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/28 13:52:21 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/29 12:33:02 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ int	f_is_full(t_philo *philo)
 	ret = 0;
 	if (philo->input->notepme < 0)
 		return (ret);
-	pthread_mutex_lock(philo->input->live);
+	pthread_mutex_lock(philo->sensor);
 	if (philo->input->notepme <= philo->ate_x_times)
 		ret = 1;
-	pthread_mutex_unlock(philo->input->live);
+	pthread_mutex_unlock(philo->sensor);
 	return (ret);
 }

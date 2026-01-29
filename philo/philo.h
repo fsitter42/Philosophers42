@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:22:26 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/29 12:05:13 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/29 12:44:31 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void					*f_ghost_routine(void *p);
 
 // f_threads_create.c
 int						f_init_threads(t_philo **ph, pthread_t *threads);
-void					f_join_threads(t_in in, pthread_t *threads);
+void					f_join_threads(t_in *in, pthread_t *threads);
 
 // structs
 typedef struct s_input

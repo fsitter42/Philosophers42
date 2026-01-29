@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 16:19:15 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/28 15:44:55 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/29 12:29:05 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,15 @@ void	*f_ghost_routine(void *p)
 
 int	f_check_death(t_philo *ph)
 {
-	pthread_mutex_lock(ph->input->live);
+	pthread_mutex_lock(ph->sensor);
 	if (f_get_time() - ph->lte > ph->input->ttd)
 	{
 		ph->input->life = false;
-		pthread_mutex_unlock(ph->input->live);
+		pthread_mutex_unlock(ph->sensor);
 		f_print_death(ph, "died");
 		return (1);
 	}
-	pthread_mutex_unlock(ph->input->live);
+	pthread_mutex_unlock(ph->sensor);
 	return (0);
 }
 
@@ -78,10 +78,10 @@ int	f_check_full(t_philo **ph)
 		return (0);
 	while (i < in->nop)
 	{
-		pthread_mutex_lock(in->live);
+		pthread_mutex_lock(ph[i]->sensor);
 		if (ph[i]->ate_x_times >= in->notepme)
 			full++;
-		pthread_mutex_unlock(in->live);
+		pthread_mutex_unlock(ph[i]->sensor);
 		i++;
 	}
 	if (full == in->nop)

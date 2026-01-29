@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 16:18:23 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/29 12:11:02 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/29 12:44:56 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ int	f_init_threads(t_philo **ph, pthread_t *threads)
 	return (0);
 }
 
-void	f_join_threads(t_in in, pthread_t *threads)
+void	f_join_threads(t_in *in, pthread_t *threads)
 {
 	int	i;
 
 	i = 0;
-	while (i < in.nop + 1)
+	while (i < in->nop + 1)
 	{
 		pthread_join(threads[i], NULL);
 		i++;
@@ -74,16 +74,3 @@ void	f_set_time(t_philo **philo)
 		i++;
 	}
 }
-
-/*
-
- hier kommt die initialisierung pthread_create()
- -> return value checken und wenn fehlschlägt bis i joinen,
- -1 returnen alles davor in main freen etc.
-
-
-
-
-*/
-
-// ... nach f_init_philos ...
