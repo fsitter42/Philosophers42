@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:22:26 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/28 16:34:57 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/29 11:45:49 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ typedef struct s_philo
 	uint64_t			lte;
 	pthread_mutex_t		*left_fork;
 	pthread_mutex_t		*right_fork;
+	pthread_mutex_t		*sensor;
 	t_in				*input;
 }						t_philo;
 
@@ -99,6 +100,8 @@ typedef struct s_table
 	pthread_mutex_t		live;
 	pthread_mutex_t		log;
 	pthread_t			*philos;
+	pthread_mutex_t		*sensors;
+	
 }						t_table;
 
 #endif
