@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   f_philo_create.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*   By: a600 <a600@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 12:51:40 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/29 12:10:14 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/29 23:48:32 by a600             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ t_philo	**f_init_philos(t_in *input, t_table *table)
 				free(philos[i]);
 			free(philos);
 			philos = NULL;
+			printf("ERROR: f_init_philos\n");
 			return (philos);
 		}
 		f_fill_philos(philos[i], i, input, table);

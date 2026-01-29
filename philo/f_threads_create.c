@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   f_threads_create.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*   By: a600 <a600@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 16:18:23 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/29 12:44:56 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/29 23:51:15 by a600             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	f_init_threads(t_philo **ph, pthread_t *threads)
 			f_kill(ph);
 			while (--i >= 0)
 				pthread_join(threads[i], NULL);
+			printf("ERROR: f_init_threads\n");
 			return (-1);
 		}
 		i++;
@@ -37,6 +38,7 @@ int	f_init_threads(t_philo **ph, pthread_t *threads)
 		f_kill(ph);
 		while (--i >= 0)
 			pthread_join(threads[i], NULL);
+		printf("ERROR: f_init_threads\n");
 		return (-1);
 	}
 	return (0);
