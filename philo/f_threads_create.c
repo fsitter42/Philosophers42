@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   f_threads_create.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: a600 <a600@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 16:18:23 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/29 01:56:20 by a600             ###   ########.fr       */
+/*   Updated: 2026/01/29 12:11:02 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void f_kill(t_philo **philo);
-void f_set_time(t_philo **philo);
+void	f_kill(t_philo **philo);
+void	f_set_time(t_philo **philo);
 
 int	f_init_threads(t_philo **ph, pthread_t *threads)
 {
@@ -42,9 +42,11 @@ int	f_init_threads(t_philo **ph, pthread_t *threads)
 	return (0);
 }
 
-void f_join_threads(t_in in, pthread_t *threads)
+void	f_join_threads(t_in in, pthread_t *threads)
 {
-	int i = 0;
+	int	i;
+
+	i = 0;
 	while (i < in.nop + 1)
 	{
 		pthread_join(threads[i], NULL);
@@ -53,17 +55,17 @@ void f_join_threads(t_in in, pthread_t *threads)
 	return ;
 }
 
-void f_kill(t_philo **philo)
+void	f_kill(t_philo **philo)
 {
 	pthread_mutex_lock(philo[0]->input->live);
 	philo[0]->input->life = false;
 	pthread_mutex_unlock(philo[0]->input->live);
 }
 
-void f_set_time(t_philo **philo)
+void	f_set_time(t_philo **philo)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	philo[0]->input->start_time = f_get_time();
 	while (philo[i])

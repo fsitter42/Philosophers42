@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 16:09:37 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/28 17:12:29 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/29 12:11:26 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ void	f_print_status(t_philo *p, char *status)
 	printf("%lu %lu %s.\n", timestamp, p->index, status);
 	pthread_mutex_unlock(p->input->log);
 }
-
 
 /* ALTE FUNKTION VERSCHACHTELUNG
 void	f_print_status(t_philo *p, char *status)

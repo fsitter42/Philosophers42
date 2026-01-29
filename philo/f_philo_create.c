@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 12:51:40 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/29 12:08:57 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/29 12:10:14 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,3 @@ t_philo	**f_free_philos(t_philo **philos)
 	philos = NULL;
 	return (philos);
 }
-
