@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 13:53:20 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/29 11:52:55 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/29 11:55:18 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ int	f_init_table(t_table *table, t_in *input)
 	table->philos = malloc(sizeof(pthread_t) * (input->nop + 1));
 	if (!table->philos)
 	{
-		f_destroy_table(table, input);
-		return (-1);
+		return (f_destroy_table(table, input), -1);
 	}
 	return (0);
 }
