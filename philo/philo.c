@@ -6,11 +6,13 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:11:09 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/29 12:45:23 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/29 12:59:20 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+int f_input_and_table(int ac, char **av, t_in *input, t_table *table);
 
 int	main(int ac, char **av)
 {
@@ -21,39 +23,42 @@ int	main(int ac, char **av)
 	input = malloc(sizeof(t_in));
 	table = malloc(sizeof(t_table));
 
-	if (f_manage_input(ac, av, input) < 0)
-		return (printf("ERROR: Input\n"), 1);
-	if (f_init_table(table, input) < 0)
-		return (printf("ERROR: init_table\n"), 1);
+	if (f_input_and_table(ac, av, input, table) < 0)
+		return (1);
 	philo = f_init_philos(input, table);
 	if (!philo)
 	{
-		printf("ERROR: f_init_philos\n");
 		f_destroy_table(table, input);
-		return (1);
+		return (printf("ERROR: f_init_philos\n"), 1);
 	}
 	if (f_init_threads(philo, table->philos) < 0)
 	{
-		printf("ERROR: f_init_threads\n");
 		f_destroy_table(table, input);
 		philo = f_free_philos(philo);
-		return (1);
+		return (printf("ERROR: f_init_threads\n"), 1);
 	}
 	f_join_threads(input, table->philos);
 	philo = f_free_philos(philo);
 	f_destroy_table(table, input);
 }
 
+int f_input_and_table(int ac, char **av, t_in *input, t_table *table)
+{
+	if (f_manage_input(ac, av, input) < 0)
+		return (printf("ERROR: Input\n"), -1);
+	if (f_init_table(table, input) < 0)
+		return (printf("ERROR: init_table\n"), -1);
+	return (0);
+}
+
+int f_protected_malloc(void *dest, size_t size)
+{
+	
+}
+
 /*
-ACHTUNG: ab Zeile 32 bei einem Fehler im Rückgabewert philo = f_free_philo() und f_destroy_table() aufrufen!!!!
-
-1 a.out
-2 number_of_philosophers
-3 time_to_die
-4 time_to_eat
-5 time_to_sleep
-6 [number_of_times_each_philosopher_must_eat]
-
-
-am schluss alles auf NULL etc setzten
+	input und table mit malloc anlegen --> WICHTIG AM ENDE FREEN
+	protected malloc fragen mit void *p
+	eventuell init und join threads abändern
+	
 */
