@@ -17,11 +17,12 @@ setarch $(uname -m) -R ./a.out 4 1100 500 500 3
 setarch $(uname -m) -R ./a.out 4 500 500 500 3
 
 cc -g *.c 
-valgrind --leak-check=full ./a.out 4 410 200 200
-valgrind --tool=helgrind ./a.out xxx
+valgrind --leak-check=full ./a.out 4 410 200 200 2
+valgrind --tool=helgrind ./a.out 4 410 200 200 2
 
-
-
+cc *.c
+./a.out 200 410 200 200
+./a.out 200 800 200 200
 
 
 zuletzt erledigt:
