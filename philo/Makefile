@@ -14,7 +14,13 @@ SOURCE =	f_ghost_routine.c  \
 
 HEADER =	philo.h
 
-CFLAGS =	-Wall -Wextra -Werror
+CFLAGS =	-Wall -Wextra -Werror 
+
+VALGRIND =	-g
+
+FSANITIZE =	-fsanitize=thread
+
+BOTH =		$(VALGRIND) $(FSANITIZE)
 
 OBJECTS =	$(SOURCE:.c=.o)
 
@@ -22,11 +28,13 @@ CC =		cc
 
 RM =		rm -rf
 
+all: $(NAME)
+
 %.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJECTS)
-	$(CC) $(OBJECTS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME)
 
 clean:	
 	${RM} ${OBJECTS}
@@ -34,8 +42,13 @@ clean:
 fclean:	clean
 	${RM} ${NAME}
 
-all: $(NAME)
 
 re:		fclean all
 
-.PHONY: clean fclean re all
+memory: CFLAGS += $(VALGRIND)
+memory: re
+
+thread: CFLAGS += $(BOTH)
+thread: re
+
+.PHONY: clean fclean re all memory thread

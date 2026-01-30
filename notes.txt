@@ -2,6 +2,7 @@ wtd:
 
 NEXT:
 
+	README
 	MAKEFILE
 	norminette
 	-wall -wextra -werror
