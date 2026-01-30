@@ -2,10 +2,7 @@ wtd:
 
 NEXT:
 
-	README
-	MAKEFILE
-	norminette
-	-wall -wextra -werror
+README
 
 TESTS:
 	
@@ -30,6 +27,11 @@ cc *.c
 
 zuletzt erledigt:
 
+TESTS:
+
+norminette
+-wall -wextra -werror
+MAKEFILE
 
 philo.c
 
