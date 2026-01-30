@@ -3,6 +3,7 @@ wtd:
 NEXT:
 
 	MAKEFILE
+	norminette
 
 TESTS:
 	
