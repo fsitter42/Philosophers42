@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:20:55 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/25 13:47:19 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/30 12:56:56 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ long int	f_valid_ulong(const char *s)
 			return (0);
 		s++;
 	}
-	if (len > 19 || len == 19 && ft_sncmp(s, lmax, 19) > 0)
+	if (len > 19 || (len == 19 && ft_sncmp(s, lmax, 19) > 0))
 		return (0);
 	while (*s >= '0' && *s <= '9')
 	{

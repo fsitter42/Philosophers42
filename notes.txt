@@ -4,6 +4,7 @@ NEXT:
 
 	MAKEFILE
 	norminette
+	-wall -wextra -werror
 
 TESTS:
 	

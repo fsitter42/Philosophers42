@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   f_ghost_routine.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 16:19:15 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/30 00:59:13 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/30 13:03:48 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	f_check_full(t_philo **ph)
 	while (i < in->nop)
 	{
 		pthread_mutex_lock(ph[i]->sensor);
-		if (ph[i]->ate_x_times >= in->notepme)
+		if ((int)ph[i]->ate_x_times >= in->notepme)
 			full++;
 		pthread_mutex_unlock(ph[i]->sensor);
 		i++;

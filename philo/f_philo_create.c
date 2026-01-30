@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   f_philo_create.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: a600 <a600@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 12:51:40 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/29 23:48:32 by a600             ###   ########.fr       */
+/*   Updated: 2026/01/30 13:00:58 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	f_fill_philos(t_philo *ph, int i, t_in *in, t_table *table);
 
 t_philo	**f_init_philos(t_in *input, t_table *table)
 {
-	int		i;
+	size_t	i;
 	t_philo	**philos;
 
 	i = 0;
@@ -28,7 +28,7 @@ t_philo	**f_init_philos(t_in *input, t_table *table)
 		philos[i] = malloc(sizeof(t_philo));
 		if (!philos[i])
 		{
-			while (--i >= 0)
+			while (i--)
 				free(philos[i]);
 			free(philos);
 			philos = NULL;

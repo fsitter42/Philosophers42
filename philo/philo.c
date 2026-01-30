@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: a600 <a600@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:11:09 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/30 00:24:13 by a600             ###   ########.fr       */
+/*   Updated: 2026/01/30 13:04:27 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int	mein(t_in *input, t_table *table);
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_in	*input;
 	t_table	*table;
-	int i;
+	int		i;
 
 	i = 0;
 	input = malloc(sizeof(t_in));
@@ -33,13 +33,13 @@ int main(int ac, char **av)
 		return (printf("ERROR: init_table\n"), free(input), free(table), 3);
 	if (mein(input, table) < 0)
 		i = 4;
-	return(free(input), free(table), i);
+	return (free(input), free(table), i);
 }
 
 int	mein(t_in *input, t_table *table)
 {
 	t_philo	**philo;
-	
+
 	philo = f_init_philos(input, table);
 	if (!philo)
 	{
