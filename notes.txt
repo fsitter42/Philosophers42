@@ -2,13 +2,32 @@ wtd:
 
 NEXT:
 
-philo.c
+	MAKEFILE
+
+TESTS:
+	
+	- malloc fails forcen
+	- mutex init error forcen (viele in f_init_table)
+	- pthread create error forcen (f_init_threads)
+
+	- stresstests viele philos
+
+cc -g -fsanitize=thread *.c
+setarch $(uname -m) -R ./a.out 4 1100 500 500 3
+setarch $(uname -m) -R ./a.out 4 500 500 500 3
+
+cc -g *.c 
+valgrind --leak-check=full ./a.out 4 410 200 200
+valgrind --tool=helgrind ./a.out xxx
+
+
+
 
 
 zuletzt erledigt:
 
 
-
+philo.c
 
 jedem philo einen eigenen mutex geben der seine:
 

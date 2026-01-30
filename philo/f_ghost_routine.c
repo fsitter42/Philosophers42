@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   f_ghost_routine.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
+/*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 16:19:15 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/29 12:29:05 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/30 00:59:13 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,10 @@ int	f_check_death(t_philo *ph)
 	pthread_mutex_lock(ph->sensor);
 	if (f_get_time() - ph->lte > ph->input->ttd)
 	{
-		ph->input->life = false;
 		pthread_mutex_unlock(ph->sensor);
+		pthread_mutex_lock(ph->input->live);
+		ph->input->life = false;
+		pthread_mutex_unlock(ph->input->live);
 		f_print_death(ph, "died");
 		return (1);
 	}
