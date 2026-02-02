@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 15:22:26 by fsitter           #+#    #+#             */
-/*   Updated: 2026/02/02 22:30:17 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/29 12:44:31 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,6 @@ typedef struct s_input
 	int					notepme;
 	uint64_t			start_time;
 	bool				life;
-	bool				buffet_is_open;
-	pthread_mutex_t		*open;
 	pthread_mutex_t		*live;
 	pthread_mutex_t		*log;
 }						t_in;
@@ -101,9 +99,9 @@ typedef struct s_table
 	pthread_mutex_t		*forks;
 	pthread_mutex_t		live;
 	pthread_mutex_t		log;
-	pthread_mutex_t		open;
 	pthread_t			*philos;
 	pthread_mutex_t		*sensors;
+
 }						t_table;
 
 #endif

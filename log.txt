@@ -1,4 +1,0 @@
-62 1 has taken a fork.
-68 1 has taken a fork.
-68 1 is eating.
-236 2 died.

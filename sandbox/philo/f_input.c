@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   f_input.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 11:56:29 by fsitter           #+#    #+#             */
-/*   Updated: 2026/02/02 22:34:42 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/27 13:12:08 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,7 @@ int	f_manage_input(int ac, char **av, t_in *input)
 	input->start_time = f_get_time();
 	input->live = NULL;
 	input->log = NULL;
-	input->open = NULL;
-	input->buffet_is_open = false;
-	input->life = true;
+	input->life = 1;
 	return (0);
 }
 

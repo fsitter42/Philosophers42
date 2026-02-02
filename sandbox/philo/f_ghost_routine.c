@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   f_ghost_routine.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 16:19:15 by fsitter           #+#    #+#             */
-/*   Updated: 2026/02/02 23:17:00 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/30 13:03:48 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void	*f_ghost_routine(void *p)
 	philos = (t_philo **)p;
 	nop = philos[0]->input->nop;
 	usleep(600);
-	while (f_get_time() < philos[0]->input->start_time)
-		usleep(100);
 	while (1)
 	{
 		i = 0;
@@ -65,7 +63,7 @@ void	f_print_death(t_philo *p, char *status)
 
 	pthread_mutex_lock(p->input->log);
 	timestamp = f_get_time() - p->input->start_time;
-	printf("%lu %lu %s\n", timestamp, p->index, status);
+	printf("%lu %lu %s.\n", timestamp, p->index, status);
 	pthread_mutex_unlock(p->input->log);
 }
 

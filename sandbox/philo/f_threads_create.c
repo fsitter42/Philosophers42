@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   f_threads_create.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 16:18:23 by fsitter           #+#    #+#             */
-/*   Updated: 2026/02/02 23:09:56 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/30 13:02:16 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	f_open_buffet(t_philo **philo);
 void	f_kill(t_philo **philo);
 void	f_set_time(t_philo **philo);
 
@@ -29,7 +28,8 @@ int	f_init_threads(t_philo **ph, pthread_t *threads)
 			f_kill(ph);
 			while (--i >= 0)
 				pthread_join(threads[i], NULL);
-			return (printf("ERROR: f_init_threads\n"), -1);
+			printf("ERROR: f_init_threads\n");
+			return (-1);
 		}
 		i++;
 	}
@@ -38,9 +38,9 @@ int	f_init_threads(t_philo **ph, pthread_t *threads)
 		f_kill(ph);
 		while (--i >= 0)
 			pthread_join(threads[i], NULL);
-		return (printf("ERROR: f_init_threads\n"), -1);
+		printf("ERROR: f_init_threads\n");
+		return (-1);
 	}
-	f_open_buffet(ph);
 	return (0);
 }
 
@@ -57,19 +57,11 @@ void	f_join_threads(t_in *in, pthread_t *threads)
 	return ;
 }
 
-void	f_open_buffet(t_philo **philo)
-{
-	pthread_mutex_lock(philo[0]->input->open);
-	philo[0]->input->buffet_is_open = true;
-	pthread_mutex_unlock(philo[0]->input->open);
-}
-
 void	f_kill(t_philo **philo)
 {
 	pthread_mutex_lock(philo[0]->input->live);
 	philo[0]->input->life = false;
 	pthread_mutex_unlock(philo[0]->input->live);
-	f_open_buffet(philo);
 }
 
 void	f_set_time(t_philo **philo)
@@ -77,7 +69,7 @@ void	f_set_time(t_philo **philo)
 	int	i;
 
 	i = 0;
-	philo[0]->input->start_time = f_get_time() + (philo[0]->input->nop * 2);
+	philo[0]->input->start_time = f_get_time();
 	while (philo[i])
 	{
 		philo[i]->lte = philo[0]->input->start_time;

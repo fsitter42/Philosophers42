@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   f_philo_routine.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fsitter <fsitter@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 12:22:24 by fsitter           #+#    #+#             */
-/*   Updated: 2026/02/02 22:58:01 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/01/30 13:03:32 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,12 @@
 
 void	*f_one_philo(t_philo *philo);
 int		f_is_full(t_philo *philo);
-void	f_wait_for_open(t_philo *philo);
 
 void	*f_philo_routine(void *p)
 {
 	t_philo	*philo;
 
 	philo = (t_philo *)p;
-	f_wait_for_open(philo);
-	while (f_get_time() < philo->input->start_time)
-		usleep(100);
 	if (philo->input->nop == 1)
 		return (f_one_philo(philo));
 	if (philo->index % 2 == 0)
@@ -38,21 +34,6 @@ void	*f_philo_routine(void *p)
 		f_philo_think(philo);
 	}
 	return (NULL);
-}
-
-void	f_wait_for_open(t_philo *philo)
-{
-	while (1)
-	{
-		pthread_mutex_lock(philo->input->open);
-		if (philo->input->buffet_is_open == true)
-		{
-			pthread_mutex_unlock(philo->input->open);
-			break ;
-		}
-		pthread_mutex_unlock(philo->input->open);
-		usleep(100);
-	}
 }
 
 void	*f_one_philo(t_philo *philo)
