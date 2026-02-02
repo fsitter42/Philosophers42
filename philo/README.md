@@ -2,7 +2,9 @@
 
 **DESCRIPTION**
 
-The goal of the subject Philosophers is to 
+The goal of the subject Philosophers is to get a feeling for threads and mutexes.
+Threads are a tool to handle different functions inside a prgramm simultaneously.
+Mutexes are a tool, that funciton like little locks, to handle memory safe when its shared between multiple threads.
 
 **INSTRUCTIONS**
 
