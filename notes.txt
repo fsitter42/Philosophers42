@@ -10,7 +10,9 @@ make life an int not a bool ether do 0 1 2 or 1 0 -1
  and if it is 0 stop -> trigger death seqence
  if its 2 wait for al philos
 
- strings remove dots ..
+ philo routine:
+while (life == 2) wait; or while (1) if (life == 1) break;
+strings remove dos ..
 
  TESTS:
 
