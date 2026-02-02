@@ -14,7 +14,7 @@ SOURCE =	f_ghost_routine.c  \
 
 HEADER =	philo.h
 
-CFLAGS =	-Wall -Wextra -Werror 
+CFLAGS =	-Wall -Wextra -Werror -pthread
 
 VALGRIND =	-g
 

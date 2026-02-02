@@ -2,17 +2,7 @@ wtd:
 
 NEXT:
 
- f_threads_create.c 
-
-make life an int not a bool ether do 0 1 2 or 1 0 -1
- after line 44 make a fucntion like f_kill() to set life to 1
- that for i have to initialise it to 2
- and if it is 0 stop -> trigger death seqence
- if its 2 wait for al philos
-
- philo routine:
-while (life == 2) wait; or while (1) if (life == 1) break;
-strings remove dos ..
+norminette
 
  TESTS:
 
@@ -28,6 +18,18 @@ strings remove dos ..
 
 zuletzt erledigt:
 
+
+ f_threads_create.c 
+
+make life an int not a bool ether do 0 1 2 or 1 0 -1
+ after line 44 make a fucntion like f_kill() to set life to 1
+ that for i have to initialise it to 2
+ and if it is 0 stop -> trigger death seqence
+ if its 2 wait for al philos
+
+ philo routine:
+while (life == 2) wait; or while (1) if (life == 1) break;
+strings remove dos ..
 
 
 README
