@@ -2,6 +2,31 @@ wtd:
 
 NEXT:
 
+ f_threads_create.c 
+
+ after line 44 make a fucntion like f_kill() to set life to 1
+ that for i have to initialise it to 2
+ and if it is 0 stop -> trigger death seqence
+ if its 2 wait for al philos
+
+ strings remove dots ..
+
+ TESTS:
+
+	(ulimit -u 1380 && valgrind --tool=helgrind ./philo 199 610 200 200)
+  	(ulimit -u 1379 && valgrind --tool=helgrind ./philo 199 610 200 200)
+  	(ulimit -u 1360 && valgrind --tool=helgrind ./philo 199 610 200 200)
+  	(ulimit -u 1380 && valgrind ./philo 199 610 200 200)
+  	(ulimit -u 1180 && valgrind ./philo 199 610 200 200)
+  	(ulimit -u 1280 && valgrind ./philo 199 610 200 200)
+
+
+
+
+zuletzt erledigt:
+
+
+
 README
 
 TESTS:
@@ -24,8 +49,6 @@ cc *.c
 ./a.out 200 410 200 200
 ./a.out 200 800 200 200
 
-
-zuletzt erledigt:
 
 TESTS:
 

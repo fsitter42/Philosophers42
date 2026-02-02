@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 16:09:37 by fsitter           #+#    #+#             */
-/*   Updated: 2026/01/30 01:27:55 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/02/02 17:35:57 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ void	f_philo_eat(t_philo *ph)
 
 void	f_philo_sleep(t_philo *ph)
 {
-	f_print_status(ph, "is sleeping.");
+	f_print_status(ph, "is sleeping");
 	f_sleep(ph->input->tts);
 }
 
 void	f_philo_think(t_philo *ph)
 {
-	f_print_status(ph, "is thinking.");
+	f_print_status(ph, "is thinking");
 	if (ph->input->nop % 2 != 0)
 		f_sleep(1);
 }
@@ -58,6 +58,6 @@ void	f_print_status(t_philo *p, char *status)
 		return ;
 	}
 	timestamp = f_get_time() - p->input->start_time;
-	printf("%lu %lu %s.\n", timestamp, p->index, status);
+	printf("%lu %lu %s\n", timestamp, p->index, status);
 	pthread_mutex_unlock(p->input->log);
 }
