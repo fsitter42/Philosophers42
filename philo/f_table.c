@@ -6,7 +6,7 @@
 /*   By: fsitter <fsitter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 13:53:20 by fsitter           #+#    #+#             */
-/*   Updated: 2026/02/02 22:28:28 by fsitter          ###   ########.fr       */
+/*   Updated: 2026/02/03 09:02:25 by fsitter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ int	f_init_table(t_table *table, t_in *input)
 		return (-1);
 	input->live = &(table->live);
 	if (pthread_mutex_init(&table->log, NULL) != 0)
-		return(f_destroy_table(table, input), -1);
+		return (f_destroy_table(table, input), -1);
 	input->log = &(table->log);
 	if (pthread_mutex_init(&table->open, NULL) != 0)
-		return(f_destroy_table(table, input), -1);
+		return (f_destroy_table(table, input), -1);
 	input->open = &(table->open);
 	if (f_init_mutex_array(&table->forks, input->nop) < 0)
-		return(f_destroy_table(table, input), -1);
+		return (f_destroy_table(table, input), -1);
 	if (f_init_mutex_array(&table->sensors, input->nop) < 0)
-		return(f_destroy_table(table, input), -1);
+		return (f_destroy_table(table, input), -1);
 	table->philos = malloc(sizeof(pthread_t) * (input->nop + 1));
 	if (!table->philos)
 		return (f_destroy_table(table, input), -1);
